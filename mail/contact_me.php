@@ -1,5 +1,12 @@
-<?php
-// Check for empty fields
+function validateName() {
+    var x = document.forms["contact"]["name"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+
+
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
    empty($_POST['phone'])     ||
@@ -19,7 +26,7 @@ $message = strip_tags(htmlspecialchars($_POST['message']));
 $to = 'meganjoybond@gmail.com';
 $email_subject = "Website Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-$headers = "From: meganjoybond@gmail.com\n"; 
+$headers = "From: meganjoybond@gmail.com\n";
 $headers .= "Reply-To: $email_address";
 mail($to,$email_subject,$email_body,$headers);
 return true;
